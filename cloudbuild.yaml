@@ -12,6 +12,7 @@ steps:
   - 'deploy'
   - 'teams-notify'
   - '--image'
+  - '--allow-unauthenticated'
   - 'gcr.io/$PROJECT_ID/teams-notify:$COMMIT_SHA'
   - '--region'
   - 'us-east1'
