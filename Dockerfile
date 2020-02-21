@@ -11,6 +11,8 @@ WORKDIR /app
 #COPY go.* ./
 #RUN go mod download
 RUN go get -u github.com/infracloudio/msbotbuilder-go/...
+RUN go get -u cloud.google.com/go/secretmanager/apiv1beta1
+RUN go get -u google.golang.org/genproto/googleapis/cloud/secretmanager/v1beta1
 # Copy local code to the container image.
 COPY . ./
 
