@@ -77,10 +77,14 @@ func main() {
 		AppID:       os.Getenv("APP_ID"),
 		AppPassword: os.Getenv("APP_PASSWORD"),
 	}
-	secretName := "projects/" + os.Getenv("PROJECT_ID") +
+	app_id := "projects/" + os.Getenv("PROJECT_ID") +
 		"/secrets/" +
 		"app_id/versions/latest"
-	log.Print(accessSecretVersion(secretName))
+	app_password := "projects/" + os.Getenv("PROJECT_ID") +
+		"/secrets/" +
+		"app_password/versions/latest"
+	log.Print(accessSecretVersion(app_id))
+	log.Print(accessSecretVersion(app_password))
 	log.Print(os.Getenv("APP_ID"))
 	port := os.Getenv("PORT")
 	if port == "" {
