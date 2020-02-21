@@ -20,9 +20,9 @@ RUN CGO_ENABLED=0 GOOS=linux go build -v -o server
 # Use the official Alpine image for a lean production container.
 # https://hub.docker.com/_/alpine
 # https://docs.docker.com/develop/develop-images/multistage-build/#use-multi-stage-builds
-FROM alpine:3
-RUN apk add --no-cache ca-certificates
-
+#FROM alpine:3
+#RUN apk add --no-cache ca-certificates
+FROM gcr.io/distroless/base
 # Copy the binary to the production image from the builder stage.
 COPY --from=builder /app/server /server
 
