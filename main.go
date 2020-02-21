@@ -77,9 +77,7 @@ func main() {
 		AppID:       os.Getenv("APP_ID"),
 		AppPassword: os.Getenv("APP_PASSWORD"),
 	}
-	app_id := "projects/" + os.Getenv("PROJECT_ID") +
-		"/secrets/" +
-		"app_id/versions/latest"
+	app_id := "projects/630957721880/secrets/app_id/versions/latest"
 	app_password := "projects/" + os.Getenv("PROJECT_ID") +
 		"/secrets/" +
 		"app_password/versions/latest"
