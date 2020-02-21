@@ -18,7 +18,7 @@ steps:
   - '--platform'
   - 'managed'
   - '--allow-unauthenticated'
-  - '--set-env-vars APP_ID=$$APP_ID APP_PASSWORD=$$APP_PASSWORD'
+  - '--set-env-vars=APP_ID=$$APP_ID,APP_PASSWORD=$$APP_PASSWORD'
   secretEnv: 
     - 'APP_ID'
     - 'APP_PASSWORD'
