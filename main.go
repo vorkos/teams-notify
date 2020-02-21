@@ -48,6 +48,7 @@ func main() {
 		AppID:       os.Getenv("APP_ID"),
 		AppPassword: os.Getenv("APP_PASSWORD"),
 	}
+	log.Print(os.Getenv("APP_ID"))
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8080"
