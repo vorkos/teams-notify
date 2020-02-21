@@ -7,9 +7,11 @@ import (
 	"net/http"
 	"os"
 
+	secretmanager "cloud.google.com/go/secretmanager/apiv1beta1"
 	"github.com/infracloudio/msbotbuilder-go/core"
 	"github.com/infracloudio/msbotbuilder-go/core/activity"
 	"github.com/infracloudio/msbotbuilder-go/schema"
+	secretmanagerpb "google.golang.org/genproto/googleapis/cloud/secretmanager/v1beta1"
 )
 
 var customHandler = activity.HandlerFuncs{
@@ -42,12 +44,43 @@ func (ht *HTTPHandler) processMessage(w http.ResponseWriter, req *http.Request) 
 	fmt.Println("Request processed successfully.")
 }
 
+// accessSecretVersion accesses the payload for the given secret version if one
+// exists. The version can be a version number as a string (e.g. "5") or an
+// alias (e.g. "latest").
+func accessSecretVersion(name string) (string, error) {
+	// name := "projects/my-project/secrets/my-secret/versions/5"
+	// name := "projects/my-project/secrets/my-secret/versions/latest"
+
+	// Create the client.
+	ctx := context.Background()
+	client, err := secretmanager.NewClient(ctx)
+	if err != nil {
+		return "", fmt.Errorf("failed to create secretmanager client: %v", err)
+	}
+
+	// Build the request.
+	req := &secretmanagerpb.AccessSecretVersionRequest{
+		Name: name,
+	}
+
+	// Call the API.
+	result, err := client.AccessSecretVersion(ctx, req)
+	if err != nil {
+		return "", fmt.Errorf("failed to access secret version: %v", err)
+	}
+	return string(result.Payload.Data), nil
+}
+
 func main() {
 
 	setting := core.AdapterSetting{
 		AppID:       os.Getenv("APP_ID"),
 		AppPassword: os.Getenv("APP_PASSWORD"),
 	}
+	secretName := "projects/" + os.Getenv("PROJECT_ID") +
+		"/secrets/" +
+		"app_id/versions/latest"
+	log.Print(accessSecretVersion(secretName))
 	log.Print(os.Getenv("APP_ID"))
 	port := os.Getenv("PORT")
 	if port == "" {
