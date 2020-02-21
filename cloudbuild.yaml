@@ -29,5 +29,5 @@ images:
 secrets:
 - kmsKeyName: 'projects/epam-trainings/locations/global/keyRings/epam/cryptoKeys/teams-notify'
   secretEnv:
-    APP_ID: CiQAKvD3Fy6zdANTIppF0JBJSLI6zXiakg2JMHBp1FT7QXsTU4QSTQDPQ28iM+OCTuqe/MY8Z87WHWrzwCSVhgBcu3k0/g1KmpR0x8oQngv1zpnCjfkw7MZEttpv9U2mpVO25X5P9eGvhHkkVfSv29oFKEs6
-    APP_PASSWORD: CiQAKvD3FxCCon0Yl/kfzjjYiI48fyCG00Ogk1CPHY9/qjvxMO4SSQDPQ28iUFbOJ7I/kaaJmetVwcLUQTUGl3fWpHgJZ1Lx+u4zk6trdteCOyUWQ6mmSNNspiZSNSLm6VQ4dQl1Ms0Kc2RymlWZGOU=
+    APP_ID: "CiQAKvD3Fy6zdANTIppF0JBJSLI6zXiakg2JMHBp1FT7QXsTU4QSTQDPQ28iM+OCTuqe/MY8Z87WHWrzwCSVhgBcu3k0/g1KmpR0x8oQngv1zpnCjfkw7MZEttpv9U2mpVO25X5P9eGvhHkkVfSv29oFKEs6"
+    APP_PASSWORD: "CiQAKvD3FxCCon0Yl/kfzjjYiI48fyCG00Ogk1CPHY9/qjvxMO4SSQDPQ28iUFbOJ7I/kaaJmetVwcLUQTUGl3fWpHgJZ1Lx+u4zk6trdteCOyUWQ6mmSNNspiZSNSLm6VQ4dQl1Ms0Kc2RymlWZGOU="
